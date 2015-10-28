@@ -40,4 +40,5 @@
     <string name="search_text">Search</string>
     <string name="or_text">/</string>
     <string name="error_invalid_isbn_number">Invalid ISBN number. Must be 10 or 13 characters long.</string>
+    <string name="action_delete">delete book</string>
 </resources>

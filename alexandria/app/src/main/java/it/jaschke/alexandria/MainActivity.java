@@ -16,7 +16,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.facebook.stetho.Stetho;
@@ -55,7 +54,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
         if(savedInstanceState != null) {
             int index = savedInstanceState.getInt("index");
-            getActionBar().setSelectedNavigationItem(index);
+            getSupportActionBar().setSelectedNavigationItem(index);
         }
 
         Stetho.initialize(
@@ -114,7 +113,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         title = getString(titleId);
     }
 
-    public void restoreActionBar() {
+    private void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
@@ -202,14 +201,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             if (intent.getStringExtra(MESSAGE_KEY) != null) {
                 Toast.makeText(MainActivity.this, intent.getStringExtra(MESSAGE_KEY), Toast.LENGTH_LONG).show();
             }
-        }
-    }
-
-    public void goBack(View view) {
-        FragmentManager fm = getSupportFragmentManager();
-
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0){
-            boolean done = getSupportFragmentManager().popBackStackImmediate();
         }
     }
 
